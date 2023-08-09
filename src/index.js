@@ -63,7 +63,7 @@ const data = [
       }
   }
 ];
-// Connect to MongoDB
+
 mongoose.connect('mongodb://127.0.0.1/aadharDatabase', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
@@ -72,7 +72,6 @@ mongoose.connect('mongodb://127.0.0.1/aadharDatabase', { useNewUrlParser: true, 
     console.error('Error connecting to MongoDB: ', error);
   });
 
-// Create a Aadhar Schema
 const AadharSchema = new mongoose.Schema({
   Name: String,
   Aadhar_Details: {
@@ -91,8 +90,6 @@ const AadharSchema = new mongoose.Schema({
   },
 });
 
-// Create a Aadhar model based on the schema
-
 const AadharModel = mongoose.model('Aadhar', AadharSchema);
 AadharModel.insertMany(data)
   .then(() => {
@@ -101,16 +98,13 @@ AadharModel.insertMany(data)
   .catch((error) => {
     console.error('Error inserting data into MongoDB: ', error);
   });
-// API endpoint to get Aadhar card information by ID
+
 app.get('/aadhar', async (req, res) => {
   try {
-    // Find all Aadhar documents from the database
-    // const documents = await AadharModel.find({});
-    // res.json(documents);
 
     const documents = await AadharModel.find({});
 
-    const keyOrder = ["Name", "Aadhar_Details", "Contact"]; // Specify the desired key order
+    const keyOrder = ["Name", "Aadhar_Details", "Contact"];
 
     const formattedData = documents.map(doc => {
       const orderedData = {};
@@ -128,8 +122,6 @@ app.get('/aadhar', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
-// Start the server and listen on a specific port (e.g., 3000)
 app.listen(3000, () => {
   console.log('API server is running on port 3000');
 });
