@@ -12,7 +12,7 @@ const data = [
           "Sex": "Male",
 
           "Address": {
-              "Father": "",
+              "Father": "", 
               "House_No": "",
               "Address": "kalyani Nagar, Cuttack,Odisha",
               "Pin": 753013
@@ -49,7 +49,7 @@ const data = [
       "Aadhar_Details": {
           "DOB": "15 DEC 2003",
           "Sex": "Male",
-          
+
           "Address": {
               "Father": "",
               "House_No": "",
