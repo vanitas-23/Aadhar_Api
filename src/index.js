@@ -49,7 +49,7 @@ const data = [
       "Aadhar_Details": {
           "DOB": "15 DEC 2003",
           "Sex": "Male",
-          "Phone Number": 9178960927,
+          
           "Address": {
               "Father": "",
               "House_No": "",
@@ -60,6 +60,23 @@ const data = [
       "Contact": {
           "Phone Number": 9178960927,
           "Email": "syedkafilurrehman@gmail.com"
+      }
+  },{
+    "Name": "Harsh Kumar",
+      "Aadhar_Details": {
+          "DOB": "22 APR 2003",
+          "Sex": "Male",
+          
+          "Address": {
+              "Father": "",
+              "House_No": "",
+              "Address": "Jamshedpur, Jharkhand",
+              "Pin": 816118
+          }
+      },
+      "Contact": {
+        "Phone Number": 6203109415,
+          "Email": "text2hk@gmail.com"
       }
   }
 ];
