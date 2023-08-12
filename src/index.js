@@ -81,7 +81,7 @@ const data = [
   }
 ];
 
-mongoose.connect('mongodb://127.0.0.1/aadharDatabase', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://syed:syed@cluster0.zkr38ew.mongodb.net/oracle?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
   })
@@ -108,15 +108,16 @@ const AadharSchema = new mongoose.Schema({
 });
 
 const AadharModel = mongoose.model('Aadhar', AadharSchema);
-AadharModel.insertMany(data)
-  .then(() => {
-    console.log('Data inserted successfully');
-  })
-  .catch((error) => {
-    console.error('Error inserting data into MongoDB: ', error);
-  });
+// AadharModel.insertMany(data)
+//   .then(() => {
+//     console.log('Data inserted successfully');
+//   })
+//   .catch((error) => {
+//     console.error('Error inserting data into MongoDB: ', error);
+//   });
 
-app.get('/aadhar', async (req, res) => {
+
+app.get('/', async (req, res) => {
   try {
 
     const documents = await AadharModel.find({});
